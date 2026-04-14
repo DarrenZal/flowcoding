@@ -251,8 +251,33 @@
             z-index: 1;
         }
 
+        .spec-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 2rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .spec-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .spec-intro {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1rem;
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
         @media (max-width: 600px) {
-            .manifesto, .evolution, .cta { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .manifesto, .spec-section, .evolution, .cta { padding-left: 1.25rem; padding-right: 1.25rem; }
             .stages { padding-left: 1.5rem; }
         }
     </style>
@@ -289,6 +314,28 @@
             <div class="card-label">Evolution</div>
             <h3>From vibes to velocity</h3>
             <p>Vibe coding is the spark. Flow coding is the sustained flame. It's the difference between jamming and composing &mdash; both creative, but one builds something that endures.</p>
+        </div>
+    </div>
+</section>
+
+<section class="spec-section">
+    <h2>Structure Enables Flow</h2>
+    <p class="spec-intro">Flow state requires one thing above all: confidence in the direction. Spec-driven development gives you that. You don't enter a flow state still wondering what you're building &mdash; the spec resolves that before the first line of code. The practice begins before the build.</p>
+    <div class="grid">
+        <div class="card">
+            <div class="card-label">Foundation</div>
+            <h3>The spec as container</h3>
+            <p>In music, flow happens inside chord changes you've already internalized. In flow coding, that container is the spec &mdash; a precise statement of intent worked out with your AI before you build. It holds the direction so your mind doesn't have to.</p>
+        </div>
+        <div class="card">
+            <div class="card-label">Rhythm</div>
+            <h3>Two beats, one practice</h3>
+            <p>Flow coding moves in two modes. In spec mode, you think carefully with your AI &mdash; clarifying intent, resolving unknowns, stress-testing assumptions. In flow mode, those questions are already answered. You move fast because the spec moves with you.</p>
+        </div>
+        <div class="card">
+            <div class="card-label">Craft</div>
+            <h3>Resolving questions is the work</h3>
+            <p>Every question you answer before executing is one less interruption that breaks flow mid-build. The spec review cycle &mdash; writing, critiquing, refining &mdash; isn't overhead. It's where the craft lives. Entering flow is effortless when you've done the thinking.</p>
         </div>
     </div>
 </section>

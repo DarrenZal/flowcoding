@@ -144,31 +144,39 @@ Claude Code ships a production multi-agent coordination stack: deterministic ide
 
 ---
 
-## Claims
+## Claim Register
 
-1. **[CLAIM] Agentic loops should be implemented as explicit, typed state machines with typed `continue` transitions.** Recovery paths become inspectable without parsing message contents, and tests can assert state transitions directly.
-   Evidence: `src/query/transitions.ts:8-37`; `src/query.ts:265-279`.
+**C1** [confidence: high] [anchor: §Agentic Loop — "typed state machine"]
+Agentic loops should be implemented as explicit, typed state machines with typed `continue` transitions. Recovery paths become inspectable without parsing message contents, and tests can assert state transitions directly.
+Evidence: `src/query/transitions.ts:8-37`; `src/query.ts:265-279`.
 
-2. **[CLAIM] Tool dispatch in a loop should partition calls by side-effect class — read-only tools run concurrently up to a bounded ceiling; state-mutating tools run serially.** This preserves consistency without requiring per-tool synchronization logic.
-   Evidence: `src/services/tools/toolOrchestration.ts:91-116`.
+**C2** [confidence: high] [anchor: §Agentic Loop — "partitioned concurrency"]
+Tool dispatch in a loop should partition calls by side-effect class — read-only tools run concurrently up to a bounded ceiling; state-mutating tools run serially. This preserves consistency without requiring per-tool synchronization logic.
+Evidence: `src/services/tools/toolOrchestration.ts:91-116`.
 
-3. **[CLAIM] Batched review is the right primitive for human trust over agentic action: a mode transition that batches exploration under one approval, with approval-time permission grants that are session-scoped, not persisted.** This is Flow Coding's *spec → review → execute* cycle implemented in a production CLI.
-   Evidence: `src/tools/ExitPlanModeTool/ExitPlanModeV2Tool.ts:147-493`; supporting: `src/components/permissions/ExitPlanModePermissionRequest/ExitPlanModePermissionRequest.tsx:56-76`.
+**C3** [confidence: high] [anchor: §Plan Mode + Practitioner Trust Surface — "batched review"]
+Batched review is the right primitive for human trust over agentic action: a mode transition that batches exploration under one approval, with approval-time permission grants that are session-scoped, not persisted. This is Flow Coding's *spec → review → execute* cycle implemented in a production CLI.
+Evidence: `src/tools/ExitPlanModeTool/ExitPlanModeV2Tool.ts:147-493`; supporting: `src/components/permissions/ExitPlanModePermissionRequest/ExitPlanModePermissionRequest.tsx:56-76`.
 
-4. **[CLAIM] Multi-agent plan approval should be leader-gated via mailbox-forwarded requests with unique request IDs.** Teammates cannot exit plan mode locally; they serialize a `plan_approval_request` to the leader. This preserves single-point oversight in parallel agent scenarios without requiring shared terminal access.
-   Evidence: `src/tools/ExitPlanModeTool/ExitPlanModeV2Tool.ts:264-313`; supporting: `src/utils/teammate.ts:149-150`.
+**C4** [confidence: high] [anchor: §Plan Mode + Practitioner Trust Surface — "leader-gated approval"]
+Multi-agent plan approval should be leader-gated via mailbox-forwarded requests with unique request IDs. Teammates cannot exit plan mode locally; they serialize a `plan_approval_request` to the leader. This preserves single-point oversight in parallel agent scenarios without requiring shared terminal access.
+Evidence: `src/tools/ExitPlanModeTool/ExitPlanModeV2Tool.ts:264-313`; supporting: `src/utils/teammate.ts:149-150`.
 
-5. **[CLAIM] Hooks are the practical mechanism for *governance baked into the loop* — PreToolUse hooks can return a permission decision and even rewrite tool input before execution.** This lets teams enforce policy (e.g., "block `Bash(rm *)`") declaratively without touching tool code.
-   Evidence: `src/types/hooks.ts:73-107`; supporting: `src/utils/hooks.ts:1952-2100`.
+**C5** [confidence: high] [anchor: §Hooks + Skills — "governance injection"]
+Hooks are the practical mechanism for governance baked into the loop — PreToolUse hooks can return a permission decision and even rewrite tool input before execution. This lets teams enforce policy (e.g., "block `Bash(rm *)`") declaratively without touching tool code.
+Evidence: `src/types/hooks.ts:73-107`; supporting: `src/utils/hooks.ts:1952-2100`.
 
-6. **[CLAIM] Skills are a viable unit of reuse for AI capabilities — markdown frontmatter + body, loaded from layered sources, context-budgeted at discovery time so the listing fits within a small fraction of the context window.** Flow Coding can adopt this format directly for sharing domain knowledge across practitioners.
-   Evidence: `src/skills/loadSkillsDir.ts:185-265`; supporting: `src/tools/SkillTool/prompt.ts:21-29`.
+**C6** [confidence: high] [anchor: §Hooks + Skills — "skills as reuse"]
+Skills are a viable unit of reuse for AI capabilities — markdown frontmatter + body, loaded from layered sources, context-budgeted at discovery time so the listing fits within a small fraction of the context window. Flow Coding can adopt this format directly for sharing domain knowledge across practitioners.
+Evidence: `src/skills/loadSkillsDir.ts:185-265`; supporting: `src/tools/SkillTool/prompt.ts:21-29`.
 
-7. **[CLAIM] A hierarchical memory file (CLAUDE.md at managed/user/project/local layers with reverse-priority override) separates *team conventions* from *personal customization*.** The project layer is checked in; the local layer is gitignored. Flow Coding projects should adopt this exact separation.
-   Evidence: `src/utils/claudemd.ts:1-26`; supporting: `src/utils/claudemd.ts:790-935`.
+**C7** [confidence: high] [anchor: §Memory + Context — "hierarchical override"]
+A hierarchical memory file (CLAUDE.md at managed/user/project/local layers with reverse-priority override) separates team conventions from personal customization. The project layer is checked in; the local layer is gitignored. Flow Coding projects should adopt this exact separation.
+Evidence: `src/utils/claudemd.ts:1-26`; supporting: `src/utils/claudemd.ts:790-935`.
 
-8. **[CLAIM] Agent teams should be flat by construction — teammates cannot spawn teammates.** Combined with deterministic composite identity (`name@team`) and file-based mailboxes, this gives a minimal, auditable multi-agent stack.
-   Evidence: `src/tools/AgentTool/AgentTool.tsx:273`; supporting: `src/utils/agentId.ts:38-40`.
+**C8** [confidence: high] [anchor: §Multi-Agent Coordination — "flat roster"]
+Agent teams should be flat by construction — teammates cannot spawn teammates. Combined with deterministic composite identity (`name@team`) and file-based mailboxes, this gives a minimal, auditable multi-agent stack.
+Evidence: `src/tools/AgentTool/AgentTool.tsx:273`; supporting: `src/utils/agentId.ts:38-40`.
 
 ---
 

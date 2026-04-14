@@ -4,6 +4,8 @@ doc_kind: foundation
 status: active
 depends_on:
   - fc.project-vision
+relates_to:
+  - fc.connection.claude-code
 ---
 
 # Spec-Driven Development

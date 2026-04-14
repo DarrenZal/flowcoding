@@ -1,0 +1,8 @@
+{
+  "project_id": "fc",
+  "project_name": "Flow Coding",
+  "project_uri": "project:flow-coding",
+  "docs_root": "docs/",
+  "repos": ["flowcoding"],
+  "tier": 1
+}

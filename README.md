@@ -17,7 +17,7 @@ docs/
   project-vision.md              — What this is and why it exists
   foundations/
     spec-driven-development.md   — The pre-flight that makes flow possible
-    flow-state-practice.md       — The mindset, rhythm, and developmental arc
+    flow-state-practice.md       — The mindset, continuous movement model, and developmental arc
   _meta/
     project.json                 — Commons governance metadata
 index.html                       — flowcode.ing landing page
@@ -25,13 +25,11 @@ index.html                       — flowcode.ing landing page
 
 ## The Core Idea
 
-Flow coding has a two-beat rhythm:
+Flow coding is not a mode you enter after the thinking is done. It is a quality of engagement that runs through the entire arc of development — speccing, building, experimenting, debugging, reflecting.
 
-**Spec mode** — deliberate, structural. You and your AI work out what needs to exist and why. Intent becomes explicit. Unknowns surface. The output is a spec that holds direction without requiring ongoing cognitive load.
+The practice is about eliminating stuck points, not eliminating uncertainty. Expert practitioners are never truly blocked. Uncertainty becomes deliberate exploration. Complexity becomes systematic investigation. Ambiguity becomes a design opportunity. There is always a clear next action, always a pathway forward.
 
-**Flow mode** — generative, fast, intuitive. The spec holds the container. Working memory commits fully to the build. Clear goals and rapid feedback create the conditions for sustained attentional depth.
-
-The spec is not overhead. It is the pre-flight that makes flow possible — the same way a jazz musician who has internalized the chord changes can improvise freely inside them.
+Each phase of development has its own conditions for flow, and its own class of stuck points. The spec eliminates direction uncertainty before the build. An experimental practice frames exploration as intentional rather than lost. A debugging methodology ensures systematic investigation rather than guessing. The craft is learning to meet the conditions for flow across the whole arc — not just during execution.
 
 ## The Commons Model
 

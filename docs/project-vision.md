@@ -15,7 +15,9 @@ The emergence of capable AI coding partners is not primarily a productivity even
 
 Vibe coding was the breakthrough moment — the discovery that anyone can build with AI by describing what they want. Flow coding is what happens when that breakthrough becomes a sustained discipline. It is the difference between jamming and composing: both are creative, but one builds something that endures.
 
-The practitioner who enters flow is not a more efficient prompter. They are a different kind of agent — one who has internalized a practice, developed craft intuition, and learned to coordinate with AI as a genuine collaborator rather than a tool. This transformation does not happen through better prompts. It happens through accumulated practice, structured reflection, and access to a living pattern language that captures what the field has learned.
+The practitioner who has developed flow coding is not a more efficient prompter. They are a different kind of agent — one who is never truly blocked, only ever in different kinds of motion. Uncertainty becomes deliberate exploration. Complexity becomes systematic investigation. Ambiguity becomes a design opportunity. This is not a psychological disposition; it is a structural achievement. The practitioner has developed structures — specs, experimental framings, debugging methodologies, context architectures — that eliminate stuck points across the entire arc of development: speccing, building, experimenting, debugging, reflecting.
+
+Flow is available at every phase, not only during execution. This is the key distinction from the narrower "get your plan right, then code" framing. The practice is about maintaining continuous creative movement throughout the work.
 
 ## What Coding Commons Is
 

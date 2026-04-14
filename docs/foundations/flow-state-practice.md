@@ -9,7 +9,7 @@ depends_on:
 
 # Flow State Practice
 
-The mindset, structural conditions, and developmental arc of sustained human-AI collaborative coding. What distinguishes flow coding from vibe coding — and what distinguishes a flow coding practitioner from someone who has learned a set of techniques.
+The mindset, continuous movement model, and developmental arc of sustained human-AI collaborative coding. What distinguishes flow coding from vibe coding — and what distinguishes a flow coding practitioner from someone who has learned a set of techniques.
 
 ## Core Claim
 
@@ -23,15 +23,23 @@ This transition is not automatic. It requires:
 - Temporal changes (accumulated sessions that build craft intuition)
 - Community changes (access to a pattern language that captures what others have learned)
 
-## The Two-Beat Rhythm
+## Flow Across the Arc
 
-Flow coding practice oscillates between two modes. Neither is primary; both are necessary:
+Flow is a quality of engagement, not a type of activity. Csikszentmihalyi's conditions — clear proximal goal, immediate feedback, challenge-skill balance — can be met in any phase of development when the practitioner has the right structures and framing.
 
-**Spec mode** — deliberate, structural, relational. The practitioner and AI work out what needs to exist and why. Intent becomes explicit. Unknowns surface. Constraints are named. The output is an artifact — the spec — that holds direction without requiring ongoing cognitive load.
+The practice is about eliminating stuck points across the entire arc of development, not entering a special execution mode. Each phase has its own conditions for flow, and its own class of stuck points:
 
-**Flow mode** — generative, fast, intuitive. The spec holds the container; direction is externalized. Working memory commits fully to implementation. The AI's outputs provide immediate feedback against clear acceptance criteria. The attentional absorption that constitutes flow emerges from the combination of clear goals and rapid feedback.
+| Phase | Clear proximal goal | Immediate feedback | Stuck point eliminated by |
+|---|---|---|---|
+| **Exploration** | "Learn whether X is possible" / "discover how Y works" | What emerges — new information, surprising behaviors | Framing exploration as deliberate, not lost |
+| **Design / spec** | "Resolve this unknown" / "make this decision explicit" | Does the spec feel clean? Are the questions answered? | Plan-review loop — questions gate surfaces what's unresolved |
+| **Build** | The acceptance criterion | Tests, running code, AI output against spec | Spec — direction held in an artifact, not working memory |
+| **Debug** | "Find the root cause" | Hypothesis confirmed or denied | Systematic investigation — always a next hypothesis |
+| **Reflect** | "Articulate what we learned" | Pattern clarity, episode captured | Reflection practice — extract learning rather than moving on |
 
-The rhythm is not sequential. Experienced practitioners move between modes fluidly — noticing when an unexpected complexity warrants a spec-mode pause, then returning to flow once direction is re-established. The craft skill is knowing which mode is appropriate, and making the transition without losing momentum.
+The practitioner who has developed structures for each phase is never truly blocked — only ever in different kinds of motion. Uncertainty becomes deliberate exploration. Complexity becomes systematic investigation. Ambiguity becomes a design opportunity.
+
+The spec is one such structure — it eliminates direction uncertainty before the build. But it is not the gateway to flow. It is one of several structures that together span the full arc. Advanced practitioners move through the arc fluidly, recognizing which phase they are in and meeting its conditions, rather than treating execution as the only "real" work.
 
 ## IC Derivation: Flow as Memory Architecture
 
@@ -70,7 +78,7 @@ Flow coding is the right frame for construction: when something specific needs t
 
 | | Vibe coding | Flow coding |
 |---|---|---|
-| **Direction** | Emergent, discovered through building | Explicit, held in the spec |
+| **Direction** | Often unclear mid-build — discovered by accident | Always explicit — in spec, experimental frame, or debugging hypothesis |
 | **Memory model** | Working memory carries everything | Layered — governance, semantic, episodic, working |
 | **AI relationship** | Tool (generates on demand) | Collaborator (reviews, challenges, executes against spec) |
 | **Quality gate** | "Does it work?" | Acceptance criteria — stated before the build |
@@ -109,4 +117,4 @@ This is the organizational expression of the same principle that governs the spe
 
 **Pace of change:** AI capabilities are evolving rapidly. Patterns that are accurate today may be superseded by model capability changes within months. The promotion criteria (evidence required before active status) may create a lag between practice and canon. The right balance between canon stability and canon freshness is not yet established.
 
-**Individual vs. collective practice:** Flow state is an individual cognitive phenomenon. But the commons is collective. The relationship between individual practitioner development and collective knowledge production is not straightforward — community participation can develop practice, but it can also fragment attention and break the conditions for flow. This tension is unresolved.
+**Individual vs. collective practice:** Flow is an individual experience, but the conditions for flow are shaped by collective infrastructure — the pattern language, the discourse graph, the community of practitioners. The relationship between individual development and collective contribution is not straightforward — community participation can develop practice, but it can also fragment attention and break the continuous movement that flow requires. This tension is unresolved.

@@ -38,13 +38,21 @@ Three projects form a learning architecture:
 |---|---|---|
 | **Spore** | Coordination grammar | How agents (human, AI, collective) coordinate without surrendering sovereignty. Provides the governance model that Coding Commons inherits. |
 | **Intelligence Commons (IC)** | Intelligence primitives | The building blocks of intelligent systems: retrieval, memory, evaluation, grounding, agentic control, capability routing. Coding Commons practitioners enact these primitives. |
-| **Flow Coding (this project)** | Practice layer | How humans and AI systems build software together. The proving ground where Spore's governance model and IC's intelligence primitives are enacted in actual development work. |
+| **Flow Coding (this project)** | Practice layer + methodology host | How humans and AI systems build software together, and where canon-bearing work develops reusable method protocols. |
 
 The boundary rule: if a pattern or technique references specific tools or platforms in ways essential to the content, it belongs here. If it generalizes across development contexts, it belongs here. If it generalizes beyond coding entirely, it belongs in Spore or IC.
 
 Flow Coding is downstream of both Spore and IC — it inherits their governance models and builds on their primitives. But it also feeds back: practitioners' sessions are evidence for IC's technique cards, and the governance challenges of a practice commons stress-test Spore's coordination grammar at a new scale.
 
 There is a recursive quality worth naming: the tools used to build Flow Coding — spec-driven development, plan-review loops, multi-agent orchestration, knowledge graph infrastructure — are themselves the subject matter of Coding Commons' pattern language. The practice is self-referential in a generative way.
+
+## Methodology Host
+
+Flow Coding has a second role alongside the practice layer described above. It is also the methodology host for canon-bearing work: the place where review protocols, foundational-reframing protocols, corpus-level review methods, and other canon-bearing process machinery can be developed as governed artifacts rather than as incidental byproducts inside a single domain repo.
+
+This role does not change the current repo topology. Per Spore ADR-0020, Flow Coding remains analysis-only under the current freeze-at-three canon-bearing guardrail. The methodology-host role is orthogonal to canon-bearing status: it names where shared method infrastructure can mature without making Flow Coding itself a fourth canon-bearing repo in this pass.
+
+FC-ADR-0001 and FC-ADR-0002 are the authoritative decisions for this role. Together they ratify Flow Coding's dual identity and define the migration convention by which future method revisions land here over time, while existing v1 protocol documents remain at their current homes until superseded.
 
 ## Constitutional Commitments
 

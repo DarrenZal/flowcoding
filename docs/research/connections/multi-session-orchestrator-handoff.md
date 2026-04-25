@@ -1,7 +1,7 @@
 ---
 doc_id: fc.connection.multi-session-orchestrator-handoff
 doc_kind: research
-status: draft
+status: active
 depends_on:
   - fc.project-vision
   - fc.methods.governance-architecture
@@ -561,4 +561,4 @@ A hook-automated version requires a hook primitive that asks the operator a ques
 
 ---
 
-**Status**: draft. Two Codex third-party reviews complete (2026-04-25); both revision passes applied. Final review verdict: no critical blockers; structurally sound for `status: active` from review perspective. Hook proposal explicitly held as spike candidate pending prototype validation. Move to `status: active` after operator ratification, with C5's conditional preserved as a known-pending item until the prototype lands.
+**Status**: active (ratified 2026-04-25). Three Codex third-party reviews complete; revision passes applied. Hook proposal (C5) explicitly held as **spike candidate pending prototype validation** per `~/.claude/plans/multi-session-handoff-hooks-prototype.md`. The conditional on C5 does not block activation of the rest of the doctrine; it is a known-pending item that the spike outcome will close.

@@ -130,6 +130,7 @@ This is the methodology-host bridge-note for the orchestrator-handoff pattern. I
 | Handoff artifact size range (measured) | 115–310 lines / 1,057–3,390 words / ~1,400–4,500 tokens estimated | `wc -l -w tmp/handoff-prompt-*.md` |
 | Rollbacks across the arc | 0 | retrospective:22 |
 | Sample session-atomic timings (Step 3 → Step 7.5) | spore:ADR-0072 sub-2-min; spore:ADR-0067 258s; spore:ADR-0066 307s; spore:ADR-0073 (F1) ~5 min; spore:ADR-0075 (F6) 8m21s; spore:ADR-0076 (F5) 122s | retrospective + Spore CLAUDE.md |
+| Hook spike (C5 validation) | 2026-04-25 — snapshot 14.8KB / sub-second runtime; restore framing-header injected post-/compact; coexistence with existing voice + auto-index hooks confirmed; 10/12 ACs validated | `spore/tmp/hook-spike-test-results-2026-04-25.md` |
 
 These are the figures the rest of the doc cites. Where claims reference a specific count or timing, they trace back to a row above.
 
@@ -408,7 +409,7 @@ The anti-pattern is silent composition: spawning sub-agents inside an agent-team
 
 ## §6 Tooling proposals
 
-### 6.1 PreCompact + SessionStart hook pair (highest-leverage; spike candidate)
+### 6.1 PreCompact + SessionStart hook pair (validated by spike 2026-04-25)
 
 **Problem**: on 2026-04-25, three cross-session handoffs each cost ~5–10 minutes of operator effort: assess context budget, author handoff prompt, start fresh session, paste handoff prompt.
 
@@ -468,9 +469,9 @@ The anti-pattern is silent composition: spawning sub-agents inside an agent-team
 - If recent (within ~24h) and matcher value indicates a fresh-after-compact / fresh-startup path, emit the handoff content to stdout
 - Otherwise no-op (silent exit 0)
 
-**Estimated effort**: 1–2 hours prototyping + testing across `manual`, `auto`, `compact`, and `startup` paths.
+**Estimated effort**: 1–2 hours prototyping + testing across `manual`, `auto`, `compact`, and `startup` paths. *(Actual effort: ~2 hours total including three Codex review rounds on the plan.)*
 **Estimated savings**: 5–10 min × multiple handoffs/day. Pays back in 1 day if hooks fire reliably.
-**Status**: **spike candidate**. Schema is verified against the local Claude Code source; runtime semantics are documented but not yet validated end-to-end. Move to "design ratified" only after a prototype has fired across at least the `manual` and `auto` PreCompact matchers and at least the `compact` and `startup` SessionStart matchers, with the handoff round-trip observed.
+**Status**: **validated** via spike 2026-04-25. Implementation at `~/projects/darren-workflow/scripts/handoff-{snapshot,restore}.sh` (version-controlled; commit `ecafa4f` on darren-workflow main) registered in `~/.claude/settings.json` (PreCompact: `manual` + `auto`; SessionStart: `compact` + `startup`). Live confirmation 22:01 PDT during /compact: snapshot `~/.claude/handoffs/spore/1777093298.md` written (14.8KB; sub-second runtime); SessionStart:compact emitted the framing header into the next turn; coexistence with existing `voice_event.py` PreCompact hook + `auto-index-session.sh` SessionStart hook confirmed (both fired alongside on the same /compact event). Post-validation relocation 22:18 PDT moved scripts from `~/.claude/hooks/` to darren-workflow `scripts/`; smoke test from new path verified clean before old copies removed. 10/12 ACs validated (AC6 fresh-claude startup + AC9 error-injection deferred as low-priority — same code path as AC5 / contract already documents non-blocking semantics). Backups at `~/.claude/settings.json.pre-handoff-hook-backup` (pre-install) + `~/.claude/settings.json.pre-relocation-backup` (pre-relocation). Test results doc at `spore/tmp/hook-spike-test-results-2026-04-25.md`.
 
 ### 6.2 `/handoff-prompt` skill (darren-workflow)
 
@@ -502,7 +503,7 @@ A hook-automated version requires a hook primitive that asks the operator a ques
 
 - **C4** [target: fc.connection.multi-session-orchestrator-handoff] [concept: structured-handoff-artifact]: Structured handoff artifacts (115–310 lines, measured) function as compressed context-transfer between sessions. They are substantially cheaper than full transcript forwarding and trade history-completeness for task-focus. The compression is intentional: a fresh-session start with a structured summary outperforms session-resume-with-full-history when the next session's task is well-defined. *Evidence: `wc -l -w tmp/handoff-prompt-*.md` measured 115–310 lines / 1,057–3,390 words across five handoff artifacts spanning 2026-04-24 through 2026-04-26; three of those handoffs landed cleanly on 2026-04-25 with successor sessions producing full ADRs without requiring re-transmission of context.*
 
-- **C5** [target: fc.connection.multi-session-orchestrator-handoff] [concept: hook-driven-handoff-automation]: Claude Code's PreCompact + SessionStart hook pair is a plausible substrate for converting manual handoff discipline into structural automation; the schema and matcher values are verified against the local source, but the end-to-end round-trip has not been validated. Treat as **spike candidate** until a prototype fires across `manual`/`auto` PreCompact matchers and `compact`/`startup` SessionStart matchers and the handoff round-trip is observed. *Evidence: schema at `claude-code/src/schemas/hooks.ts:194-213`; event semantics at `hooksConfigManager.ts:86-93` and `:136-143`; manual baseline of 5–10 min per handoff measured on 2026-04-25.*
+- **C5** [target: fc.connection.multi-session-orchestrator-handoff] [concept: hook-driven-handoff-automation]: Claude Code's PreCompact + SessionStart hook pair converts manual handoff discipline into structural automation. **Validated** by spike 2026-04-25 across the `manual` PreCompact matcher and the `compact` SessionStart matcher with the handoff round-trip observed live (snapshot written, framing-header restore emitted into the post-/compact turn). The `auto` PreCompact and `startup` SessionStart matchers are registered and share the same code paths as the validated matchers; treat as validated by code-path equivalence pending organic next-fire. *Evidence: schema at `claude-code/src/schemas/hooks.ts:194-213`; event semantics at `hooksConfigManager.ts:86-93` and `:136-143`; spike implementation at `~/.claude/hooks/handoff-{snapshot,restore}.sh`; live trace at `spore/tmp/hook-spike-test-results-2026-04-25.md`; manual baseline of 5–10 min per handoff measured on 2026-04-25.*
 
 - **C6** [target: fc.connection.multi-session-orchestrator-handoff] [concept: orchestrator-executor-topology]: One-direction message flow at the dispatch layer — `operator ↔ orchestrator → child → orchestrator → operator` — and bounded tier-depth avoid the most-cited 2026 production failure mode for multi-agent systems (infinite handoff loops with replanning drift). The constraint is that children do not dispatch siblings, orchestrators do not message peer orchestrators, and tier-depth is fixed at 3. *Evidence: 2026 industry surveys identifying A→B→C→A loops as top failure mode; OpenClaw VISION.md:106-117 rejecting nested-hierarchy default; Spore canon-rebuild arc validated single-orchestrator-at-a-time across 10 dispatches on 2026-04-25 with zero rollbacks.*
 
@@ -561,4 +562,4 @@ A hook-automated version requires a hook primitive that asks the operator a ques
 
 ---
 
-**Status**: active (ratified 2026-04-25). Three Codex third-party reviews complete; revision passes applied. Hook proposal (C5) explicitly held as **spike candidate pending prototype validation** per `~/.claude/plans/multi-session-handoff-hooks-prototype.md`. The conditional on C5 does not block activation of the rest of the doctrine; it is a known-pending item that the spike outcome will close.
+**Status**: active (ratified 2026-04-25). Three Codex third-party reviews complete; revision passes applied. Hook proposal (C5) **validated** by spike 2026-04-25 (live /compact round-trip observed); §6.1 status promoted from spike-candidate to validated. Spike implementation registered at `~/.claude/hooks/` per `~/.claude/plans/multi-session-handoff-hooks-prototype.md`; live trace at `spore/tmp/hook-spike-test-results-2026-04-25.md`.

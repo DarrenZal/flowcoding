@@ -35,7 +35,7 @@ The practice is about eliminating stuck points across the entire arc of developm
 | **Design / spec** | "Resolve this unknown" / "make this decision explicit" | Does the spec feel clean? Are the questions answered? | Plan-review loop — questions gate surfaces what's unresolved |
 | **Build** | The acceptance criterion | Tests, running code, AI output against spec | Spec — direction held in an artifact, not working memory |
 | **Debug** | "Find the root cause" | Hypothesis confirmed or denied | Systematic investigation — always a next hypothesis |
-| **Reflect** | "Articulate what we learned" | Pattern clarity, episode captured | Reflection practice — extract learning rather than moving on |
+| **Reflect** | "Articulate what we learned" | Pattern clarity, episode captured | Reflection practice — extract learning rather than moving on. See [Iteration on the Same Axis — Step Back at Three](../techniques/iteration-axis-step-back.md) for the canonical reflection-phase technique that catches in-flight thrash. |
 
 The practitioner who has developed structures for each phase is never truly blocked — only ever in different kinds of motion. Uncertainty becomes deliberate exploration. Complexity becomes systematic investigation. Ambiguity becomes a design opportunity.
 

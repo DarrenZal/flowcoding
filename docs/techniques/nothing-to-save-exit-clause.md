@@ -1,9 +1,11 @@
 ---
 doc_id: fc.technique.nothing-to-save-exit-clause
 doc_kind: pattern
-status: draft
+status: proposed
 depends_on:
   - fc.spec-driven-development
+derived_from:
+  - fc.connection.practitioner-discipline-2026-05-05
 relates_to:
   - fc.technique.batched-review-trust-primitive
 concepts:

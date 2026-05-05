@@ -4,6 +4,8 @@ doc_kind: pattern
 status: draft
 depends_on:
   - fc.flow-state-practice
+derived_from:
+  - fc.connection.practitioner-discipline-2026-05-05
 relates_to:
   - fc.technique.governance-without-core-changes
 concepts:

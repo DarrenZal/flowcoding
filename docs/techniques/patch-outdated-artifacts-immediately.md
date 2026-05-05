@@ -1,9 +1,11 @@
 ---
 doc_id: fc.technique.patch-outdated-artifacts-immediately
 doc_kind: pattern
-status: draft
+status: proposed
 depends_on:
   - fc.project-vision
+derived_from:
+  - fc.connection.practitioner-discipline-2026-05-05
 relates_to:
   - fc.spec-driven-development
   - fc.flow-state-practice

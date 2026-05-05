@@ -4,6 +4,8 @@ doc_kind: pattern
 status: draft
 depends_on:
   - fc.spec-driven-development
+derived_from:
+  - fc.connection.practitioner-discipline-2026-05-05
 relates_to:
   - fc.technique.patch-outdated-artifacts-immediately
   - fc.technique.verify-integration-mechanisms

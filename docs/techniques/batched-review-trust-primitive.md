@@ -57,3 +57,4 @@ How do you give the agent enough autonomy to be useful without giving up structu
 
 - [Bridge note: Claude Code → Flow Coding](../research/connections/claude-code-flow-coding.md) (§Plan Mode + Practitioner Trust Surface, claims C3–C4)
 - [Spec-Driven Development](../foundations/spec-driven-development.md) — the Flow Coding instance of this primitive at task-planning time.
+- [The "Nothing to Save" Exit Clause](nothing-to-save-exit-clause.md) — complementary technique on the prompt side of the review surface: gives the agent permission to fail-closed when there's nothing to surface.

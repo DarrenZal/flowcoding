@@ -50,7 +50,7 @@ A spec that can gate execution contains six sections:
 | **Non-goals** | What this task explicitly does not do. Scope boundary. |
 | **Constraints** | What the solution must not violate. Architectural, operational, or ethical bounds. |
 | **Assumptions** | What is taken as true without verification. Makes implicit dependencies explicit. |
-| **Acceptance Criteria** | Testable conditions that define done. The eval contract. |
+| **Acceptance Criteria** | Testable conditions that define done. The eval contract. See [Specific Observation → Specific Claim](../techniques/specific-observation-to-specific-claim.md) for the verification-discipline technique that prevents AC-overclaim ("verified by direct observation" hand-waves). |
 | **Rollback** | How to undo the change if it fails. Reversibility is a first-class concern. |
 
 The minimum viable spec is not a long document. A well-formed spec for a bounded task may be eight to twenty lines. The discipline is in the thinking, not the word count.

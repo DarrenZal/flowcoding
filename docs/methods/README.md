@@ -7,5 +7,6 @@ Future method-protocol revisions land here per FC-ADR-0002. v1 method documents 
 ## Entry point
 
 - **[governance-architecture.md](./governance-architecture.md)** — overview of the canon-bearing governance architecture (layers, update mechanisms, and how the specific method protocols fit together). Start here to understand the full shape before reading individual protocols.
+- **[agentic-workflow-portability.md](./agentic-workflow-portability.md)** — draft method for translating workflows across agentic coding runtimes by primitive rather than by product surface.
 
 Subsequent documents in this directory will be individual method protocols as they migrate in.

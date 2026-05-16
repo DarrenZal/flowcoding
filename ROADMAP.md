@@ -1,6 +1,6 @@
 # flowcoding — Roadmap & Task List
 
-Last updated: 2026-04-21
+Last updated: 2026-05-15
 
 **How this file is organized:**
 - **Currently Active** — workstreams in motion right now
@@ -16,6 +16,15 @@ Plan: `~/.claude/plans/flowcoding-methodology-host-declarative.md`
 - Establish Flow Coding's methodology-host role in canon structure.
 - Open the canon-decisions and methods surfaces.
 - Author FC-ADR-0001 and FC-ADR-0002.
+
+### Agentic workflow portability method — DRAFTED (2026-05-15)
+
+Operational trigger: `darren-workflow` Codex / Claude parity pass and OpenAI `migrate-to-codex` audit. Draft method landed at `docs/methods/agentic-workflow-portability.md`. It defines primitive-level translation for agentic coding workflows: inventory source surfaces, classify by primitive, choose conversion operator, preserve safety contract, verify in target runtime. IC owns the intelligence-primitives bridge note (`ic.connection.agentic-workflow-portability`); Flow Coding owns the practitioner method.
+
+Next:
+- [ ] Exercise the method against one non-trivial Claude slash command that is not already a shared skill.
+- [ ] Add a command coverage table to `darren-workflow` and use it as evidence for method revision.
+- [ ] Decide whether this method graduates from draft after a second runtime-pair translation.
 
 ## Parked Threads
 
